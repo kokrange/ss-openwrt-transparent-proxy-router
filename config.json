@@ -1,0 +1,34 @@
+{
+  "servers": [
+    {
+      "address": "127.0.0.1",
+      "port": your_mapped_vps_local_port,
+      "password": "your_ss_pass",
+      "method": "chacha20-ietf-poly1305"
+    },
+    {
+      "address": "127.0.0.1",
+      "port": your_other_mapped_vps_local_port,
+      "password": "your_another_ss_pass",
+      "method": "chacha20-ietf-poly1305"
+    }
+  ],
+  "locals": [
+    {
+      "local_port": 1080,
+      "local_address": "127.0.0.1",
+      "protocol": "redir",
+      "mode": "tcp_and_udp",
+      "tcp_redir": "tproxy",
+      "udp_redir": "tproxy"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55353,
+      "forward_address": "8.8.8.8",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
+    }
+  ]
+}

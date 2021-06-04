@@ -1,0 +1,3 @@
+create vps.ipset hash:net family inet hashsize 1024 maxelem 65536
+add vps.ipset your_vps_ip/32
+add vps.ipset your_other_vps_ip/32

@@ -1,0 +1,11 @@
+#!/bin/sh /etc/rc.common
+START=99
+STOP=15
+ 
+start() {
+  ss start
+}
+ 
+stop() {
+  ss stop
+}

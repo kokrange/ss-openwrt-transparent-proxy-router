@@ -1,0 +1,17 @@
+create reserved.ipset hash:net family inet hashsize 1024 maxelem 65536
+add reserved.ipset 0.0.0.0/8         
+add reserved.ipset 10.0.0.0/8        
+add reserved.ipset 100.64.0.0/10     
+add reserved.ipset 127.0.0.0/8       
+add reserved.ipset 169.254.0.0/16    
+add reserved.ipset 172.16.0.0/12     
+add reserved.ipset 192.0.0.0/24      
+add reserved.ipset 192.0.2.0/24      
+add reserved.ipset 192.88.99.0/24    
+add reserved.ipset 192.168.0.0/16    
+add reserved.ipset 198.18.0.0/15     
+add reserved.ipset 198.51.100.0/24   
+add reserved.ipset 203.0.113.0/24    
+add reserved.ipset 224.0.0.0/4       
+add reserved.ipset 240.0.0.0/4       
+add reserved.ipset 255.255.255.255/32
