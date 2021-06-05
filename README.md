@@ -3,6 +3,13 @@ openwrt transparent proxy router configuration using ss
 
 ## deploy
 
+openwrt software(opkg install):
+* bash
+* docker
+* dockerd
+* docker-compose
+* iptables-mod-tproxy
+
 change custom value(words start with your_***) in following files:
 * docker-compose.yaml
 * config.json
@@ -24,13 +31,6 @@ openwrt file copy:
 openwrt gui:
 * lan interface uncheck bridge.
 * dns ignore resolv, hosts files.
-
-openwrt software(opkg install):
-* bash
-* docker
-* dockerd
-* docker-compose
-* iptables-mod-tproxy
 
 terminal command:
 * service dnsmasq restart
