@@ -1,7 +1,7 @@
 # ss-openwrt-transparent-proxy-router
 openwrt transparent proxy router configuration using ss
 
-## deploy
+## deploy (openwrt >= 21.02, 64bit)
 
 openwrt software(opkg install):
 * bash
@@ -17,7 +17,7 @@ change custom value(words start with your_***) in following files:
 
 local, remote machine deploy(files from [here](https://github.com/kokrange/ss-port-mapping))
 * servers with server/docker-compose.yaml
-* client(openwrt >= 21.02, 64bit) with many client/docker-compose.yaml
+* client with many client/docker-compose.yaml
 
 openwrt file copy:
 * config.json -> /etc/ss/config.json
