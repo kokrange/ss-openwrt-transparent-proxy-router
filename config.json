@@ -9,7 +9,7 @@
     {
       "address": "127.0.0.1",
       "port": your_other_mapped_vps_local_port,
-      "password": "your_another_ss_pass",
+      "password": "your_other_ss_pass",
       "method": "chacha20-ietf-poly1305"
     }
   ],
