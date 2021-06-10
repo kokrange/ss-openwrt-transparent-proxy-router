@@ -9,6 +9,7 @@ openwrt software(opkg install):
 * dockerd
 * docker-compose
 * iptables-mod-tproxy
+* ipset
 
 change custom value(words start with your_***) in following files:
 * docker-compose.yaml
