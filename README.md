@@ -30,10 +30,11 @@ openwrt file copy:
 * sslocal(extracted from [here](https://github.com/shadowsocks/shadowsocks-rust/releases)) -> /usr/bin/sslocal
 
 openwrt gui:
-* lan interface uncheck bridge.
+* lan interface uncheck: bridge.
+* wan interface uncheck: Use DNS servers advertised by peer.
 * dns ignore resolv, hosts files.
 
 terminal command:
 * service dnsmasq restart
-* service vpn start( or restart)
+* service vpn start(or restart)
 * service vpn enable
