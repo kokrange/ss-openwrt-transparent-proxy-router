@@ -12,7 +12,7 @@ openwrt software(opkg install):
 * ipset
 
 change custom value(words start with your_***) in following files:
-* docker-compose.yaml
+* docker-compose.yaml(files from [here](https://github.com/kokrange/ss-port-mapping))
 * config.json
 * vps.ipset
 
