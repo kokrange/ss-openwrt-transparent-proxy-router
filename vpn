@@ -3,7 +3,7 @@ START=99
 STOP=15
  
 start() {
-  ss start
+  ss restart
 }
  
 stop() {
