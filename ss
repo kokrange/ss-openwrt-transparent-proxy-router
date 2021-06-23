@@ -15,9 +15,9 @@ start_ipset() {
 }
 
 stop_ipset() {
-	ipset destroy reserved.ipset
-	ipset destroy china.ipset
-	ipset destroy vps.ipset
+	ipset destroy reserved.ipset &>/dev/null
+	ipset destroy china.ipset &>/dev/null
+	ipset destroy vps.ipset &>/dev/null
 }
 
 start_iptables() {
@@ -60,14 +60,14 @@ start_iptables() {
 
 stop_iptables() {
 	##################### PREROUTING #####################
-	iptables -t mangle -D PREROUTING -j SS
+	iptables -t mangle -D PREROUTING -j SS &>/dev/null
 
 	##################### OUTPUT #####################
-	iptables -t mangle -D OUTPUT -j SS-MARK
+	iptables -t mangle -D OUTPUT -j SS-MARK &>/dev/null
 
 	##################### SSREDIR #####################
-	iptables -t mangle -F SS &>/dev/null
-	iptables -t mangle -X SS &>/dev/null
+	iptables -t mangle -F SS &>/dev/null &>/dev/null
+	iptables -t mangle -X SS &>/dev/null &>/dev/null
 
 	iptables -t mangle -F SS-MARK &>/dev/null
 	iptables -t mangle -X SS-MARK &>/dev/null
