@@ -66,8 +66,8 @@ stop_iptables() {
 	iptables -t mangle -D OUTPUT -j SS-MARK &>/dev/null
 
 	##################### SSREDIR #####################
-	iptables -t mangle -F SS &>/dev/null &>/dev/null
-	iptables -t mangle -X SS &>/dev/null &>/dev/null
+	iptables -t mangle -F SS &>/dev/null
+	iptables -t mangle -X SS &>/dev/null
 
 	iptables -t mangle -F SS-MARK &>/dev/null
 	iptables -t mangle -X SS-MARK &>/dev/null
@@ -89,6 +89,7 @@ start_resolvconf() {
 }
 
 stop_resolvconf() {
+	echo ""
 }
 
 start() {
