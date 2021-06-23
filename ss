@@ -86,10 +86,11 @@ stop_iproute2() {
 
 start_resolvconf() {
 	echo "nameserver 127.0.0.1" >/etc/resolv.conf
+	echo "server=127.0.0.1#55353" >/etc/dnsmasq.d/upstream-nameserver.conf
 }
 
 stop_resolvconf() {
-	echo "nameserver 114.114.114.114" >/etc/resolv.conf
+	echo "server=114.114.114.114" >/etc/dnsmasq.d/upstream-nameserver.conf
 }
 
 start() {
