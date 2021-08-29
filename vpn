@@ -3,7 +3,6 @@ START=99
 STOP=15
  
 start() {
-  ulimit -SHn 65535
   ss restart
 }
  
