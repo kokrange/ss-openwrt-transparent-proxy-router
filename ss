@@ -1,6 +1,7 @@
 #!/bin/bash
 
 start_ssredir() {
+	ulimit -n 65535
 	(sslocal -c /etc/ss/config.json </dev/null &>>/var/log/ss-redir.log &)
 }
 
