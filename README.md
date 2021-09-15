@@ -54,7 +54,7 @@ mv vpn /etc/init.d/
 * for x86_amd64: shadowsocks-y.y.y.x86_64-unknown-linux-musl.tar.xz
 ```bash
 chmod 755 sslocal
-mv sslocal /user/bin/
+mv sslocal /usr/bin/
 sslocal --help
 ```
 * if you can see the help output from `sslocal --help`, then your sslocal is installed correctly.
