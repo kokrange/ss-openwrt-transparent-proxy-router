@@ -61,7 +61,7 @@ sslocal --help
 
 
 ### Openwrt gui:
-* lan interface uncheck: bridge. (br-lan will not work!!)
+* lan interface uncheck: bridge. (WARN: br-lan will not work!!)
 * wan interface uncheck: Use DNS servers advertised by peer.
 * disable IPv6 for lan and wan, especially for wan.
 * dns ignore resolv, hosts files.
