@@ -16,14 +16,19 @@ openwrt software(opkg install):
 opkg update
 opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset
 ```
+
+git clone this project and [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to your openwrt
 change custom value(words start with your_***) in following files:
 * docker-compose.yaml(files from [here](https://github.com/kokrange/ss-port-mapping))
 * config.json
 * vps.ipset
 
 local, remote machine deploy(files from [here](https://github.com/kokrange/ss-port-mapping))
-* servers with server/docker-compose.yaml
-* client with many client/docker-compose.yaml
+```bash
+docker-compose up -d
+```
+* each server with server/docker-compose.yaml (this is for your vps node)
+* client with many client/docker-compose.yaml (this is for your openwrt. e.g. if you have 2 vps nodes, then node1/docker-compose.yaml, node2/docker-comopse.yaml)
 
 openwrt file copy:
 * config.json -> /etc/ss/config.json
@@ -41,7 +46,18 @@ mv ipset/ /etc/ && \
 mv ss /usr/bin/ && \
 mv vpn /etc/init.d/
 ```
+install sslocal
 * sslocal(extracted from [here](https://github.com/shadowsocks/shadowsocks-rust/releases)) -> /usr/bin/sslocal
+* for arm32: shadowsocks-x.x.x.arm-unknown-linux-musleabi.tar.xz
+* for arm64: shadowsocks-x.x.x.aarch64-unknown-linux-musl.tar.xz
+* for x86: shadowsocks-x.x.x.i686-unknown-linux-musl.tar.xz
+* for x86_amd64: shadowsocks-x.x.x.x86_64-unknown-linux-musl.tar.xz
+```bash
+chmod 755 sslocal
+mv sslocal /user/bin/
+sslocal --help
+```
+* if you can see the help output from `sslocal --help`, then your sslocal is installed correctly.
 
 openwrt gui:
 * lan interface uncheck: bridge.
@@ -50,6 +66,11 @@ openwrt gui:
 * dns ignore resolv, hosts files.
 
 terminal command:
-* service dnsmasq restart
-* service vpn start(or restart)
-* service vpn enable
+```bash
+service dnsmasq restart
+service vpn start
+service vpn enable
+```
+
+
+
