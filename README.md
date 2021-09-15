@@ -10,7 +10,12 @@ openwrt software(opkg install):
 * docker-compose
 * iptables-mod-tproxy
 * ipset
-
+* git
+* git-http
+```bash
+opkg update
+opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset
+```
 change custom value(words start with your_***) in following files:
 * docker-compose.yaml(files from [here](https://github.com/kokrange/ss-port-mapping))
 * config.json
@@ -27,11 +32,21 @@ openwrt file copy:
 * ipset/ -> /etc/ipset/
 * ss -> /usr/bin/ss
 * vpn -> /etc/init.d/vpn
+```bash
+mkdir /etc/ss && \
+mv config.json /etc/ss/ && \
+mv dnsmasq.conf /etc/ && \
+mv dnsmasq.d/ /etc/ && \
+mv ipset/ /etc/ && \
+mv ss /usr/bin/ && \
+mv vpn /etc/init.d/
+```
 * sslocal(extracted from [here](https://github.com/shadowsocks/shadowsocks-rust/releases)) -> /usr/bin/sslocal
 
 openwrt gui:
 * lan interface uncheck: bridge.
 * wan interface uncheck: Use DNS servers advertised by peer.
+* disable IPv6 for lan and wan, especially for wan.
 * dns ignore resolv, hosts files.
 
 terminal command:
