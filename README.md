@@ -3,7 +3,7 @@ openwrt transparent proxy router configuration using ss
 
 ## deploy (openwrt >= 21.02, 64bit)
 
-openwrt software(opkg install):
+Install openwrt software(opkg install):
 * bash
 * docker
 * dockerd
@@ -17,20 +17,22 @@ opkg update
 opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset
 ```
 
-git clone this project and [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to your openwrt and
+Git clone this project and [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to your openwrt and
 change custom values(words start with your_***) in following files:
 * docker-compose.yaml(files from [here](https://github.com/kokrange/ss-port-mapping))
 * config.json
 * vps.ipset
 
-local, remote machine service deploy(files from [here](https://github.com/kokrange/ss-port-mapping))
+
+Local, remote machine service deploy(files from [here](https://github.com/kokrange/ss-port-mapping))
 ```bash
 docker-compose up -d
 ```
 * each server with server/docker-compose.yaml (this is for your vps nodes, you should git clone [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to each of your servers, and change the custom values too.)
 * client with many client/docker-compose.yaml (this is for your openwrt. e.g. if you have 2 vps nodes, then you should have 2 folders: node1/docker-compose.yaml, node2/docker-comopse.yaml on your openwrt.)
 
-openwrt file copy:
+
+Openwrt files copy:
 * config.json -> /etc/ss/config.json
 * dnsmasq.conf -> /etc/dnsmasq.conf
 * dnsmasq.d/ -> /etc/dnsmasq.d/
@@ -46,12 +48,13 @@ mv ipset/ /etc/ && \
 mv ss /usr/bin/ && \
 mv vpn /etc/init.d/
 ```
-install sslocal
+
+Install sslocal
 * sslocal(extracted from [here](https://github.com/shadowsocks/shadowsocks-rust/releases)) -> /usr/bin/sslocal
-* for arm32: shadowsocks-x.x.x.arm-unknown-linux-musleabi.tar.xz
-* for arm64: shadowsocks-x.x.x.aarch64-unknown-linux-musl.tar.xz
-* for x86: shadowsocks-x.x.x.i686-unknown-linux-musl.tar.xz
-* for x86_amd64: shadowsocks-x.x.x.x86_64-unknown-linux-musl.tar.xz
+* for arm32: shadowsocks-*.*.*.arm-unknown-linux-musleabi.tar.xz
+* for arm64: shadowsocks-*.*.*.aarch64-unknown-linux-musl.tar.xz
+* for x86: shadowsocks-*.*.*.i686-unknown-linux-musl.tar.xz
+* for x86_amd64: shadowsocks-*.*.*.x86_64-unknown-linux-musl.tar.xz
 ```bash
 chmod 755 sslocal
 mv sslocal /user/bin/
@@ -59,13 +62,15 @@ sslocal --help
 ```
 * if you can see the help output from `sslocal --help`, then your sslocal is installed correctly.
 
-openwrt gui:
+
+Openwrt gui:
 * lan interface uncheck: bridge.
 * wan interface uncheck: Use DNS servers advertised by peer.
 * disable IPv6 for lan and wan, especially for wan.
 * dns ignore resolv, hosts files.
 
-terminal command:
+
+Terminal command:
 ```bash
 service dnsmasq restart
 service vpn start
@@ -73,4 +78,7 @@ service vpn enable
 ```
 
 
-
+Log:
+```bash
+tail -n 100 /var/log/ss-redir.log
+```
