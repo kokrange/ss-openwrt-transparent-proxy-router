@@ -67,7 +67,7 @@ sslocal --help
 * dns ignore resolv, hosts files.
 
 
-### Terminal command:
+### Command:
 ```bash
 service dnsmasq restart
 service vpn start
