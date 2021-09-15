@@ -51,10 +51,8 @@ mv vpn /etc/init.d/
 
 Install sslocal
 * sslocal(extracted from [here](https://github.com/shadowsocks/shadowsocks-rust/releases)) -> /usr/bin/sslocal
-* for arm32: shadowsocks-*.*.*.arm-unknown-linux-musleabi.tar.xz
-* for arm64: shadowsocks-*.*.*.aarch64-unknown-linux-musl.tar.xz
-* for x86: shadowsocks-*.*.*.i686-unknown-linux-musl.tar.xz
-* for x86_amd64: shadowsocks-*.*.*.x86_64-unknown-linux-musl.tar.xz
+* for arm64: shadowsocks-y.y.y.aarch64-unknown-linux-musl.tar.xz
+* for x86_amd64: shadowsocks-y.y.y.x86_64-unknown-linux-musl.tar.xz
 ```bash
 chmod 755 sslocal
 mv sslocal /user/bin/
