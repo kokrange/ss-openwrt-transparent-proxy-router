@@ -1,7 +1,7 @@
 # ss-openwrt-transparent-proxy-router
 openwrt transparent proxy router configuration using ss
 
-## deploy (openwrt >= 21.02, 64bit)
+## How to deploy (require openwrt >= 21.02, 64bit)
 
 ### Install openwrt software(opkg install):
 * bash
