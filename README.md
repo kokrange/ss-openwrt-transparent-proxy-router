@@ -1,6 +1,8 @@
 # ss-openwrt-transparent-proxy-router
 openwrt transparent proxy router configuration using ss
 
+![plot](./arch.png)
+
 ## How to deploy (require openwrt >= 21.02, 64bit)
 
 ### Install openwrt software(opkg install):
