@@ -26,14 +26,14 @@ opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy
 
 
 ### Local, remote machine service deploy(files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
-* each server with server/docker-compose.yaml (this is for your vps nodes, you should git clone [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to each of your servers, and change the custom values.)
-* client with many client/docker-compose.yaml (this is for your openwrt. e.g. if you have 2 vps nodes, then you should have 2 folders: node1/docker-compose.yaml, node2/docker-comopse.yaml on your openwrt.)
+* Each VPS node should have one server/docker-compose.yaml (you should git clone [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to each of your servers, and change the custom values.)
+* Openwrt should have many client/docker-compose.yaml (e.g. if you have 2 vps nodes, then you should have 2 folders: node1/docker-compose.yaml, node2/docker-comopse.yaml on your openwrt.)
 ```bash
 docker-compose up -d
 ```
 
 
-### Openwrt files copy:
+### Openwrt files install:
 * config.json -> /etc/ss/config.json
 * dnsmasq.conf -> /etc/dnsmasq.conf
 * dnsmasq.d/ -> /etc/dnsmasq.d/
