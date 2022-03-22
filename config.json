@@ -26,7 +26,7 @@
       "protocol": "tunnel",
       "local_address": "127.0.0.1",
       "local_port": 55353,
-      "forward_address": "8.8.8.8",
+      "forward_address": "1.1.1.1",
       "forward_port": 53,
       "mode": "tcp_and_udp"
     }
