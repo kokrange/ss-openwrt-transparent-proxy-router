@@ -26,7 +26,7 @@ opkg install kmod-usb-net-cdc-ether kmod-usb-net-asix-ax88179
 ```
 
 
-### Openwrt / VPS node service deploy (files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
+### Openwrt / VPS node service deployment (files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
 * Each VPS node should have one server/docker-compose.yaml (you should git clone [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to each of your servers, and change the custom values.)
 * Openwrt should have many client/docker-compose.yaml (e.g. if you have 2 vps nodes, then you should have 2 folders: node1/docker-compose.yaml, node2/docker-comopse.yaml on your openwrt.)
 * Change custom values in docker-comopse.yaml(words start with your_*** ), then
