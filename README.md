@@ -37,7 +37,7 @@ docker-compose up -d
 
 ### Openwrt proxy config: change custom values(words start with your_***) in following files:
 * config.json
-* vps.ipset
+* ipset/vps.ipset
 
 ### Openwrt proxy config install:
 * config.json -> /etc/ss/config.json
