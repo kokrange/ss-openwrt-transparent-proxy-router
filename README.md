@@ -19,21 +19,19 @@ opkg update
 opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset
 ```
 
-### Git clone this project also [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to your openwrt and change custom values(words start with your_***) in following files:
-* docker-compose.yaml(files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
-* config.json
-* vps.ipset
-
-
-### Local, remote machine service deploy(files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
+### Openwrt / VPS node service deploy (files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
 * Each VPS node should have one server/docker-compose.yaml (you should git clone [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to each of your servers, and change the custom values.)
 * Openwrt should have many client/docker-compose.yaml (e.g. if you have 2 vps nodes, then you should have 2 folders: node1/docker-compose.yaml, node2/docker-comopse.yaml on your openwrt.)
+* Change custom values in docker-comopse.yaml(words start with your_*** ), then
 ```bash
 docker-compose up -d
 ```
 
+### Openwrt proxy config: change custom values(words start with your_***) in following files:
+* config.json
+* vps.ipset
 
-### Openwrt files install:
+### Openwrt proxy config install:
 * config.json -> /etc/ss/config.json
 * dnsmasq.conf -> /etc/dnsmasq.conf
 * dnsmasq.d/ -> /etc/dnsmasq.d/
@@ -63,10 +61,10 @@ sslocal --help
 
 
 ### Openwrt gui:
-* lan interface uncheck: bridge. (WARN: br-lan will not work!!)
-* wan interface uncheck: Use DNS servers advertised by peer.
-* disable IPv6 for lan and wan, especially for wan.
-* dns ignore resolv, hosts files.
+* Lan interface uncheck: bridge. (WARN: br-lan will not work!)
+* Wan interface uncheck: Use DNS servers advertised by peer.
+* Disable IPv6 for lan and wan, especially for wan. (WARN: IPv6 proxy are not supported.)
+* DNS ignore resolv, hosts files.
 
 
 ### Command(after all things configured correctly):
