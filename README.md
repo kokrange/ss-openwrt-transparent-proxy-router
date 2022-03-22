@@ -26,7 +26,7 @@ opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy
 ```bash
 docker-compose up -d
 ```
-* Some Cloud Services have port restrictions, if that's the case, you should add all exposed UDP ports(in docker-comopse.yaml) to whitelist.
+* Some Cloud Services have port restrictions, if that's the case, you should add all exposed UDP ports(in server/docker-comopse.yaml) to whitelist.
 
 ### Openwrt proxy config: change custom values(words start with your_***) in following files:
 * config.json
