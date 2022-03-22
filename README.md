@@ -18,6 +18,13 @@ openwrt transparent proxy router configuration using ss
 opkg update
 opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset
 ```
+* If your openwrt use usb-to-ether adapter, you should also install:
+* kmod-usb-net-cdc-ether (for most usb2.0 adapters)
+* kmod-usb-net-asix-ax88179 (for latest usb3.0 adapters)
+```bash
+opkg install kmod-usb-net-cdc-ether kmod-usb-net-asix-ax88179
+```
+
 
 ### Openwrt / VPS node service deploy (files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
 * Each VPS node should have one server/docker-compose.yaml (you should git clone [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to each of your servers, and change the custom values.)
