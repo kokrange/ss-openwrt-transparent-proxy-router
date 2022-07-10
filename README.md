@@ -4,7 +4,7 @@ openwrt transparent proxy router configuration using ss.
 
 ![plot](./arch.png)
 
-## How to deploy (require openwrt >= 21.02, 64bit)
+## How to deploy (require openwrt >= 21.02, 64bit. Tested: 21.02.3)
 
 ### Install openwrt software(opkg install):
 * bash
@@ -17,7 +17,7 @@ openwrt transparent proxy router configuration using ss.
 * git-http
 ```bash
 opkg update
-opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset
+opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset htop lsblk lscpu vim-full
 ```
 * If your openwrt use usb-to-ether adapter, you should also install:
 * kmod-usb-net-cdc-ether (for most usb2.0 adapters)
@@ -35,6 +35,14 @@ opkg install kmod-usb-net-cdc-ether kmod-usb-net-asix-ax88179
 docker-compose up -d
 ```
 * Some Cloud Services have port restrictions, if that's the case, you should add all exposed UDP ports(in server/docker-comopse.yaml) to whitelist.
+
+
+### Openwrt gui:
+* Lan interface uncheck: bridge. (WARN: br-lan will not work!)
+* Wan interface uncheck: Use DNS servers advertised by peer.
+* Disable IPv6 for lan and wan, especially for wan. (WARN: IPv6 proxy are not supported.)
+* DNS ignore resolv, hosts files.
+
 
 ### Openwrt proxy config: change custom values(words start with your_***) in following files:
 * config.json
@@ -67,13 +75,6 @@ mv sslocal /usr/bin/
 sslocal --help
 ```
 * if you can see the help output from `sslocal --help`, then your sslocal is installed correctly.
-
-
-### Openwrt gui:
-* Lan interface uncheck: bridge. (WARN: br-lan will not work!)
-* Wan interface uncheck: Use DNS servers advertised by peer.
-* Disable IPv6 for lan and wan, especially for wan. (WARN: IPv6 proxy are not supported.)
-* DNS ignore resolv, hosts files.
 
 
 ### Command(after all things configured correctly):
