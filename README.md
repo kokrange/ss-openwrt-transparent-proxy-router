@@ -1,5 +1,6 @@
 # ss-openwrt-transparent-proxy-router
-openwrt transparent proxy router configuration using ss
+High Availability & Full network protocols TCP/UDP supported. 
+openwrt transparent proxy router configuration using ss.
 
 ![plot](./arch.png)
 
