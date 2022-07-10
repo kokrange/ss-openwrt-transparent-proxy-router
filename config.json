@@ -29,6 +29,62 @@
       "forward_address": "1.1.1.1",
       "forward_port": 53,
       "mode": "tcp_and_udp"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55354,
+      "forward_address": "1.0.0.1",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55355,
+      "forward_address": "8.8.8.8",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55356,
+      "forward_address": "8.8.4.4",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55357,
+      "forward_address": "9.9.9.9",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55358,
+      "forward_address": "149.112.112.112",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55359,
+      "forward_address": "208.67.222.222",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
+    },
+    {
+      "protocol": "tunnel",
+      "local_address": "127.0.0.1",
+      "local_port": 55360,
+      "forward_address": "208.67.220.220",
+      "forward_port": 53,
+      "mode": "tcp_and_udp"
     }
   ]
 }
