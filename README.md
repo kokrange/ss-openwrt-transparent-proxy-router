@@ -4,7 +4,7 @@ openwrt transparent proxy router configuration using ss.
 
 ![plot](./arch.png)
 
-## How to deploy (require openwrt >= 21.02, 64bit. Tested: 21.02.3)
+## How to deploy (require openwrt >= 21.02, on arm/x86[32bit/64bit]. Tested: 21.02.3)
 
 ### Install openwrt software(opkg install):
 * bash
@@ -15,9 +15,10 @@ openwrt transparent proxy router configuration using ss.
 * ipset
 * git
 * git-http
+* dnscrypt-proxy2
 ```bash
 opkg update
-opkg install git git-http bash dockerd docker docker-compose iptables-mod-tproxy ipset htop lsblk lscpu vim-full
+opkg install git git-http dnscrypt-proxy2 bash dockerd docker docker-compose iptables-mod-tproxy ipset htop lsblk lscpu vim-full
 ```
 * If your openwrt use usb-to-ether adapter, you should also install:
 * kmod-usb-net-cdc-ether (for most usb2.0 adapters)
@@ -27,14 +28,16 @@ opkg install kmod-usb-net-cdc-ether kmod-usb-net-asix-ax88179
 ```
 
 
-### Openwrt / VPS node service deployment (files from [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
-* Each VPS node should have one server/docker-compose.yaml (you should git clone [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping) to each of your servers, and change the custom values.)
-* Openwrt should have many client/docker-compose.yaml (e.g. if you have 2 vps nodes, then you should have 2 folders: node1/docker-compose.yaml, node2/docker-comopse.yaml on your openwrt.)
-* Change custom values in docker-comopse.yaml(words start with your_*** ), then
+### Openwrt / VPS node service deployment (docker-compose files in /compose folder, also see [the ss-port-mapping project](https://github.com/kokrange/ss-port-mapping))
+* Each VPS node should have one vps/docker-compose.yaml (you should vps/docker-compose.yaml to each of your servers, then change the custom values.)
+* Openwrt should have many openwrt/docker-compose.yaml (e.g. if you have 2 vps nodes, then you should have 2 folders: node1/docker-compose.yaml, node2/docker-comopse.yaml on your openwrt.)
+* Change custom values in all docker-comopse.yaml(words start with your_*** )
+* kcp_port_range format: min-max (e.g. 10000-10200), it require approximately 512M memory per 100 ports for kcptun server(kcps) on VPS node.
+* start docker
 ```bash
 docker-compose up -d
 ```
-* Some Cloud Services have port restrictions, if that's the case, you should add all exposed UDP ports(in server/docker-comopse.yaml) to whitelist.
+* Some Cloud Services have port restrictions, if that's the case, you should add all exposed UDP ports(in vps/docker-comopse.yaml) to whitelist.
 
 
 ### Openwrt gui:
@@ -55,6 +58,7 @@ docker-compose up -d
 * ipset/ -> /etc/ipset/
 * ss -> /usr/bin/ss
 * vpn -> /etc/init.d/vpn
+* dnscrypt-proxy.toml -> /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
 ```bash
 mkdir /etc/ss && \
 mv config.json /etc/ss/ && \
@@ -69,6 +73,9 @@ mv vpn /etc/init.d/
 * sslocal(extracted from [here](https://github.com/shadowsocks/shadowsocks-rust/releases)) -> /usr/bin/sslocal
 * for arm64: shadowsocks-y.y.y.aarch64-unknown-linux-musl.tar.xz
 * for x86_amd64: shadowsocks-y.y.y.x86_64-unknown-linux-musl.tar.xz
+* for arm7: shadowsocks-y.y.y.armv7-unknown-linux-musleabihf.tar.xz
+* for x86: shadowsocks-y.y.y.i686-unknown-linux-musl.tar.xz
+
 ```bash
 chmod 755 sslocal
 mv sslocal /usr/bin/
@@ -79,9 +86,11 @@ sslocal --help
 
 ### Command(after all things configured correctly):
 ```bash
-service dnsmasq restart
 service vpn start
 service vpn enable
+service dnsmasq restart
+service dnscrypt-proxy restart
+service dnscrypt-proxy enable
 ```
 
 
