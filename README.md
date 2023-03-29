@@ -66,7 +66,8 @@ mv dnsmasq.conf /etc/ && \
 mv dnsmasq.d/ /etc/ && \
 mv ipset/ /etc/ && \
 mv ss /usr/bin/ && \
-mv vpn /etc/init.d/
+mv vpn /etc/init.d/ && \
+mv dnscrypt-proxy.toml /etc/dnscrypt-proxy2/dnscrypt-proxy.toml
 ```
 
 ### Install sslocal
