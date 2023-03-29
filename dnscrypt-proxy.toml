@@ -1,0 +1,25 @@
+listen_addresses = ['0.0.0.0:5353']
+
+server_names = ['cloudflare', 'google']
+
+ipv4_servers = true
+ipv6_servers = false
+dnscrypt_servers = true
+doh_servers = true
+
+force_tcp = true
+
+timeout = 5000
+keepalive = 30
+
+cache = true
+cache_size = 4096
+cache_min_ttl = 2400
+cache_max_ttl = 86400
+
+[sources]
+  [sources.'public-resolvers']
+    urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md', 'https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md']
+    minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+    cache_file = 'public-resolvers.md'
+    refresh_delay = 72
