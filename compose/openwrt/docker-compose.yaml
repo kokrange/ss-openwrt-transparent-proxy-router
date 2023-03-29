@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  kcp:
+    image: grugway/kcpc
+    environment:
+      - KEY=your_kcp_key
+      - KCP_SERVER_IP=your_server_ip
+      - KCP_SERVER_PORT_RANGE=your_kcp_port_range
+    ports:
+      - "your_local_port:8388/tcp"
+    restart: always
+
+  usp:
+    image: grugway/uspc
+    environment:
+      - KEY=your_usp_key
+      - USP_SERVER_IP=your_server_ip
+      - USP_SERVER_PORT=your_usp_port
+    ports:
+      - "your_local_port:8388/udp"
+    restart: always
