@@ -42,7 +42,7 @@ docker-compose up -d
 
 ### Openwrt gui:
 * Lan interface uncheck: bridge. (WARN: br-lan will not work!)
-* Wan interface uncheck: Use DNS servers advertised by peer.
+* Wan interface uncheck: Use DNS servers advertised by peer. (Or Not. for some version of openwrt)
 * Disable IPv6 for lan and wan, especially for wan. (WARN: IPv6 proxy are not supported.)
 * DNS ignore resolv, hosts files.
 
