@@ -18,7 +18,7 @@ openwrt transparent proxy router configuration using ss.
 * dnscrypt-proxy2
 ```bash
 opkg update
-opkg install git git-http dnscrypt-proxy2 bash dockerd docker docker-compose iptables-mod-tproxy ipset htop lsblk lscpu vim-full
+opkg install git git-http dnscrypt-proxy2 bash dockerd docker docker-compose iptables-mod-tproxy ipset htop lsblk lscpu vim-full tar curl
 ```
 * If your openwrt use usb-to-ether adapter, you should also install:
 * kmod-usb-net-cdc-ether (for most usb2.0 adapters)
