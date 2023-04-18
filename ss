@@ -57,6 +57,9 @@ start_iptables() {
 	# Apply
 	iptables -t mangle -A OUTPUT -j SS-MARK
 
+	##################### MASQUERADE #####################
+	iptables -t nat -I POSTROUTING -j MASQUERADE
+
 }
 
 stop_iptables() {
@@ -65,6 +68,9 @@ stop_iptables() {
 
 	##################### OUTPUT #####################
 	iptables -t mangle -D OUTPUT -j SS-MARK &>/dev/null
+
+	##################### MASQUERADE #####################
+	iptables -t nat -D POSTROUTING -j MASQUERADE &>/dev/null
 
 	##################### SSREDIR #####################
 	iptables -t mangle -F SS &>/dev/null
