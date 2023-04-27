@@ -21,10 +21,10 @@ opkg update
 opkg install git git-http dnscrypt-proxy2 bash dockerd docker docker-compose iptables-mod-tproxy ipset htop lsblk lscpu vim-full tar curl
 ```
 * If your openwrt use usb-to-ether adapter, you should also install:
-* kmod-usb-net-cdc-ether (for most usb2.0 adapters)
+* kmod-usb-net-cdc-ether kmod-usb-net-rtl8150 kmod-usb-net-rtl8152 (for most usb2.0 adapters)
 * kmod-usb-net-asix-ax88179 (for latest usb3.0 adapters)
 ```bash
-opkg install kmod-usb-net-cdc-ether kmod-usb-net-asix-ax88179
+opkg install kmod-usb-net-cdc-ether kmod-usb-net-rtl8150 kmod-usb-net-rtl8152 kmod-usb-net-asix-ax88179
 ```
 
 
